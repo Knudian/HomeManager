@@ -1,8 +1,7 @@
-<?php
-
-namespace AppBundle\Entity;
+<?php namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * Human
@@ -10,8 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="human")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\HumanRepository")
  */
-class Human
-{
+class Human extends BaseUser {
     /**
      * @var int
      *
@@ -19,17 +17,18 @@ class Human
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
+    public function __construct(){
+      parent::__construct();
+    }
 
     /**
      * Get id
      *
      * @return int
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 }
-
