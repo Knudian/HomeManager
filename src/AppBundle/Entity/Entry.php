@@ -3,80 +3,60 @@
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Entry
- *
- * @ORM\Table(name="entry")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\EntryRepository")
+ * Abstract Class Entry
+ * 
+ * Represent any message posted in the application.
  */
-class Entry {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
+abstract class Entry {
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="up_date", type="datetime")
      */
-    private $upDate;
+    protected $upDate;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="e_date", type="datetime")
      */
-    private $eDate;
+    protected $eDate;
 
     /**
      * @var string
      *
      * @ORM\Column(name="documentList", type="string", length=255)
      */
-    private $documentList;
+    protected $documentList;
 
     /**
      * @var string
      *
      * @ORM\Column(name="docs", type="string", length=255, nullable=true)
      */
-    private $docs;
+    protected $docs;
 
     /**
      * @var int
      *
      * @ORM\Column(name="status", type="integer")
      */
-    private $status;
+    protected $status;
 
     /**
      * @var int
      *
      * @ORM\Column(name="category", type="integer")
      */
-    private $category;
+    protected $category;
 
     /**
      * @var float
      *
      * @ORM\Column(name="value", type="float")
      */
-    private $value;
-
-
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+    protected $value;
 
     /**
      * Set upDate

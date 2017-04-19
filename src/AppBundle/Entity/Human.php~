@@ -4,8 +4,10 @@ use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
 
 /**
- * Human
+ * Class Human
  *
+ * Represents a user within the application.
+ * 
  * @ORM\Table(name="human")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\HumanRepository")
  */

@@ -3,13 +3,15 @@
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * DocumentTag
+ * Class DocumentTag
+ * 
+ * The tags given to any documents.
+ * Each tags is unique.
  *
  * @ORM\Table(name="document_tag")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\DocumentTagRepository")
  */
-class DocumentTag
-{
+class DocumentTag {
     /**
      * @var int
      *

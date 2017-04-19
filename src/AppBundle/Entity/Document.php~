@@ -3,7 +3,9 @@
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Document
+ * Class Document
+ * 
+ * Represents a file of any type uploaded into the application.
  *
  * @ORM\Table(name="document")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\DocumentRepository")
@@ -19,26 +21,28 @@ class Document {
     private $id;
 
     /**
-     * The Date the document was updated.
+     * The Date the document was updated to the application.
      * 
      * @var \DateTime
      *
-     * @ORM\Column(name="in_date", type="datetime")
+     * @ORM\Column(name="up_date", type="datetime")
      */
-    private $inDate;
+    private $up_date;
 
     /**
      * The Date the document was emitted.
+     * It can be retrieved from the document metadatas.
      * 
      * @var \DateTime
      *
-     * @ORM\Column(name="d_date", type="datetime")
+     * @ORM\Column(name="em_date", type="datetime")
      */
-    private $dDate;
+    private $em_date;
 
     /**
      * The extension type of the document.
-     * 
+     * Used for sorting the files.
+     *  
      * @var string
      *
      * @ORM\Column(name="ext", type="string", length=3)
@@ -85,7 +89,7 @@ class Document {
      */
     public function setInDate($inDate)
     {
-        $this->inDate = $inDate;
+        $this->up_date = $inDate;
 
         return $this;
     }
@@ -97,7 +101,7 @@ class Document {
      */
     public function getInDate()
     {
-        return $this->inDate;
+        return $this->up_date;
     }
 
     /**
@@ -109,7 +113,7 @@ class Document {
      */
     public function setDDate($dDate)
     {
-        $this->dDate = $dDate;
+        $this->em_date = $dDate;
 
         return $this;
     }
@@ -121,7 +125,7 @@ class Document {
      */
     public function getDDate()
     {
-        return $this->dDate;
+        return $this->em_date;
     }
 
     /**
@@ -204,5 +208,53 @@ class Document {
     public function getIsAffected()
     {
         return $this->isAffected;
+    }
+
+    /**
+     * Set upDate
+     *
+     * @param \DateTime $upDate
+     *
+     * @return Document
+     */
+    public function setUpDate($upDate)
+    {
+        $this->up_date = $upDate;
+
+        return $this;
+    }
+
+    /**
+     * Get upDate
+     *
+     * @return \DateTime
+     */
+    public function getUpDate()
+    {
+        return $this->up_date;
+    }
+
+    /**
+     * Set emDate
+     *
+     * @param \DateTime $emDate
+     *
+     * @return Document
+     */
+    public function setEmDate($emDate)
+    {
+        $this->em_date = $emDate;
+
+        return $this;
+    }
+
+    /**
+     * Get emDate
+     *
+     * @return \DateTime
+     */
+    public function getEmDate()
+    {
+        return $this->em_date;
     }
 }

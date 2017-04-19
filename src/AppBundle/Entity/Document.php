@@ -3,7 +3,9 @@
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Document
+ * Class Document
+ * 
+ * Represents a file of any type uploaded into the application.
  *
  * @ORM\Table(name="document")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\DocumentRepository")
@@ -206,5 +208,53 @@ class Document {
     public function getIsAffected()
     {
         return $this->isAffected;
+    }
+
+    /**
+     * Set upDate
+     *
+     * @param \DateTime $upDate
+     *
+     * @return Document
+     */
+    public function setUpDate($upDate)
+    {
+        $this->up_date = $upDate;
+
+        return $this;
+    }
+
+    /**
+     * Get upDate
+     *
+     * @return \DateTime
+     */
+    public function getUpDate()
+    {
+        return $this->up_date;
+    }
+
+    /**
+     * Set emDate
+     *
+     * @param \DateTime $emDate
+     *
+     * @return Document
+     */
+    public function setEmDate($emDate)
+    {
+        $this->em_date = $emDate;
+
+        return $this;
+    }
+
+    /**
+     * Get emDate
+     *
+     * @return \DateTime
+     */
+    public function getEmDate()
+    {
+        return $this->em_date;
     }
 }

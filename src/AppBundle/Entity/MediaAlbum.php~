@@ -1,0 +1,40 @@
+<?php namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Description of PhotoAlbum
+ *
+ * Specific type of Entry for managing pictures, and videos.
+ * 
+ * @ORM\Table(name="media_albums")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\FinancialRepository")
+ */
+class MediaAlbum extends Entry {
+    
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+    
+    /**
+     * The ending moment of this album.
+     * 
+     * @var \DateTime
+     * @ORM\Column(name="end_date", type="datetime")
+     */
+    protected $end_date;
+    
+    /**
+     * Represents the list of documents being part of this album.
+     * 
+     * One Album has many medias.
+     * @ORM\OneToMany(targetEntity="Media", mappedBy="album")
+     */
+    protected $medias;
+    
+}

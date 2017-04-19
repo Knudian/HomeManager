@@ -1,17 +1,16 @@
-<?php
-
-namespace AppBundle\Entity;
+<?php namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Category
+ * Class Category
+ * 
+ * Represents a category, or a sub category for displaying informations on the application.
  *
  * @ORM\Table(name="category")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\CategoryRepository")
  */
-class Category
-{
+class Category {
     /**
      * @var int
      *
@@ -93,4 +92,3 @@ class Category
         return $this->motherCategory;
     }
 }
-
